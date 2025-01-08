@@ -40,7 +40,7 @@ Cv_vib_total = R * vib_temp_T_square * total_exp_vib_temp_T
 Cv_total = 10000 * (Cv_trans + Cv_rot + Cv_vib_total) / conversion_factor
 
 # Load the 'Cl2' datasheet and extract relevant columns 
-data = pd.ExcelFile('~/Desktop/TCC_SM_/SM_CW2_Cl2.xlsx')
+data = pd.ExcelFile('~/Desktop/TCC_SM_/CW_2/SM_CW2_Cl2.xlsx')
 Cl2_data_sheet = data.parse('Sheet1') 
 temperature_column = Cl2_data_sheet.columns[0]
 cv_nist_column = Cl2_data_sheet.columns[2]
