@@ -1,0 +1,187 @@
++---------------------------------------------------+
+|  ZACROS 3.03                                      |
+|  GRAPH-THEORETICAL KMC SIMULATION CODE            |
+|                                                   |
+|  Multiscale Computational Catalysis and           |
+|  Materials Science Research Group                 |
+|                                                   |
+|  Michail Stamatakis, Ph.D.                        |
+|  Chemical Engineering Department                  |
+|  University College London                        |
++---------------------------------------------------+
+
+Threading/multiprocessing information:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    Serial run (no parallelism).
+
+Simulation setup:
+~~~~~~~~~~~~~~~~~
+
+    Random sequence with seed: 420656
+
+    Temperature: 300.00000000000000
+
+    Pressure: 2154.4346900318819
+
+    Number of gas species: 1
+
+    Gas species names: CO 
+
+    Gas species energies: 0.0000000000000000 
+
+    Gas species molecular weights: 28.010000000000002 
+
+    Gas species molar fractions: 1.0000000000000000 
+
+    Number of surface species: 1
+
+    Surface species names: CO* 
+
+    Surface species dentation:  1
+
+    Snapshots will be reported in file history_output.txt at every 1000 events
+
+    Process statistics will be reported in file procstat_output.txt at every 1000 events
+
+    Species numbers will be reported in file specnum_output.txt at every 1000 events
+
+    Maximum number of steps: 100000
+
+    Max simulated time: 1.7976931348623157E+308 (maximum allowed value)
+
+    Allowed walltime in seconds: 3600
+
+    The default Mersenne Twister 19937 random number generator will be used for this simulation.
+
+    Initializing the random number generator took 8.8999999999999995E-005 seconds
+
+    The default first reaction method will be used for propagating the KMC state, with a binary heap for the event-queue
+
+Finished reading simulation input.
+
+Lattice setup:
+~~~~~~~~~~~~~~
+
+    Parsing one of the default lattice structures.
+
+    Unit cell area: 11.289176342029695
+
+    Unit cell tiling: 4 x 5
+
+    Lattice surface area: 225.78352684059388
+
+    Number of lattice sites per cell: 2
+
+    Total number of lattice sites: 40
+
+    Number of site types: 1
+
+    Site type names and total number of sites of that type:
+      StTp1 (40)
+
+    Maximum coordination number: 6
+
+Finished reading lattice input.
+
+Energetics setup:
+~~~~~~~~~~~~~~~~~
+
+    Number of clusters: 2
+
+    Maximum number of sites involved in a cluster: 2
+
+    Clusters:
+
+        1. CO_point:    Mult = 1      ECI = -0.43400000000000000      Entities:  CO* 
+        2. CO+CO_pair:  Mult = 1      ECI = 0.0000000000000000        Entities:  CO* CO*
+
+Finished reading energetics input.
+
+Mechanism setup:
+~~~~~~~~~~~~~~~~
+
+    Number of elementary steps: 2
+
+    Maximum number of sites involved in a step: 1
+
+    Reaction network:
+
+        1. CO_adsorption_fwd:    A(Tini) =  3.4923E+11    Ea       =  0.00    k(Tini) =  3.4923E+11    Reaction: CO  +  *(.)  ->  CO*(.)
+        2. CO_adsorption_rev:    A(Tini) =  1.9199E+17  [ Ea-ideal =  0.43    k(Tini) =  9.8269E+09 ]  Reaction: CO*(.)  ->  CO  +  *(.)
+
+Finished reading mechanism input.
+
+Preparing simulation:
+~~~~~~~~~~~~~~~~~~~~~
+
+    Constructing requested lattice structure.
+
+        Lattice structure written to lattice_output.txt
+
+    Pre-allocating KMC-simulation-handling datastructures... done!
+
+    Pre-allocating lattice-handling datastructures... done!
+
+    Pre-allocating event-rate-handling datastructures... done!
+
+    Initializing lattice state.
+
+        All lattice sites are vacant.
+
+    Initializing energetics.
+
+        Total adlayer energy: 0.0000000000000000
+
+    Initializing lattice events.
+
+        40 lattice events found and stored in binary heap.
+
+Commencing simulation:
+~~~~~~~~~~~~~~~~~~~~~~
+
+Simulation stopped:
+~~~~~~~~~~~~~~~~~~~
+ Current KMC time: 1.30311761E-07
+ Events occurred:  100000
+ Event frequency:  7.67390450E+11
+
+Performance facts:
+~~~~~~~~~~~~~~~~~~
+
+Elapsed CPU time:         0.681901991 seconds
+Elapsed clock time:       0.696645021 seconds
+Setup clock time:         8.81899986E-03 seconds
+Simulation clock time:    0.687825978 seconds
+
+Clock time per KMC event: 6.96645020E-06 seconds
+Clock time per KMC time:  5345987.50 seconds/KMCTimeUnits
+
+Events per clock hour:    516762464
+KMC Dt per clock hour:    6.73402275E-04 KMCTimeUnits
+
+Execution queue statistics:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Number of insertions:               100040
+Number of removals:                 100000
+Number of updates:                  600000
+
+Memory usage statistics:
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Used capacity of process queue:                      40
+       ...out of max-allocated:                    2000  (   2.00% utilization )
+
+Used capacity of process-participation list:          1
+       ...out of max-allocated:                     200  (   0.50% utilization )
+
+Used capacity of cluster list:                      280
+       ...out of max-allocated:                    2000  (  14.00% utilization )
+
+Used capacity of cluster-participation list:         13
+       ...out of max-allocated:                      60  (  21.67% utilization )
+
+Restart information successfully written in file restart.inf.
+
+> Normal termination <

@@ -1,0 +1,27 @@
++---------------------------------------------------+
+|  ZACROS 3.03                                      |
+|  GRAPH-THEORETICAL KMC SIMULATION CODE            |
+|                                                   |
+|  Multiscale Computational Catalysis and           |
+|  Materials Science Research Group                 |
+|                                                   |
+|  Michail Stamatakis, Ph.D.                        |
+|  Chemical Engineering Department                  |
+|  University College London                        |
++---------------------------------------------------+
+
+Threading/multiprocessing information:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    Serial run (no parallelism).
+
+***************
+
+General error code 10 from simulation_parser_module: at least one non-optional input file is missing.
+
+More information: 
+Input file simulation_input.dat could not be found.
+
+***************
+
+> ABNORMAL TERMINATION DUE TO FATAL ERROR <
