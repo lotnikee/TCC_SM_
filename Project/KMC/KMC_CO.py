@@ -14,13 +14,6 @@ filtered_KMC_CO_data = filtered_KMC_CO_data[[pressure_column, coverage_column]]
 # Rename columns
 filtered_KMC_CO_data.columns = ['p', 'Coverage per site']
 
-# Convert columns to numeric
-filtered_KMC_CO_data['p'] = pd.to_numeric(filtered_KMC_CO_data['p'], errors='coerce')
-filtered_KMC_CO_data['Coverage per site'] = pd.to_numeric(filtered_KMC_CO_data['Coverage per site'], errors='coerce')
-
-# Drop rows with NaN values
-filtered_KMC_CO_data = filtered_KMC_CO_data.dropna()
-
 delta_g = 0.106  # eV 
 T = 300  # K
 boltzmann = 8.6173e-05  # eV / K
