@@ -10,9 +10,9 @@ import matplotlib.pyplot as plt
 
 # Define constants 
 temp = 300                                 
-pressure = 1.0e+5    
-kB = 8.61733326e-05                      
+pressure = 1.0e+5                          
 Pa_to_bar = 1.0e-5
+boltzmann = 8.617333262145e-5 
 T = np.linspace(100,1000)               # Temperature range needed for selectivity plot 
 
 # Create a Cu(111) slab and get energy
@@ -43,7 +43,7 @@ CH4_ads = deepcopy(slab)
 add_adsorbate(slab=CH4_ads, adsorbate=CH4_mol, height= 4.0, position=(3.82, 2.21))
 constraint_CH4 = FixAtoms(mask=[atom.symbol == "Cu" for atom in CH4_ads])
 CH4_ads.set_constraint(constraint_CH4)
-dyn = QuasiNewton(CH4_ads, trajectory="CH4_Cu(111).traj")
+dyn_CH4 = QuasiNewton(CH4_ads, trajectory="CH4_Cu(111).traj")
 dyn.run(fmax=0.05)
 energy_CH4_ads = CH4_ads.get_potential_energy()
 
@@ -70,10 +70,11 @@ g_slab_CO = energy_slab
 adsorption_free_energy_CO = g_CO_ads - (g_slab_CO + g_CO_gas)
 
 # Calculate the adsorption free energy of CH4
-vib_energy_CH4_gas = [0.3843, 0.3840, 0.3840, 0.3685, 0.1881, 0.1879,
-                    0.1595, 0.1593, 0.1592]
+vib_energy_CH4_gas = [0.3843, 0.3840, 0.3840, 0.3685, 0.1881, 
+                      0.1879, 0.1595, 0.1593, 0.1592]
 vib_energy_CH4_ads = [0.3815, 0.3758, 0.3758, 0.3625, 0.1850, 0.1848,
-                    0.1589, 0.1584, 0.1559, 0.0161, 0.0161, 0.0112, 0.0061, 0.0061, 0.0061]
+                     0.1589, 0.1584, 0.1559, 0.0161, 0.0161, 0.0112, 
+                     0.0061, 0.0061, 0.0061]
 thermo_CH4_gas = IdealGasThermo(vib_energies=vib_energy_CH4_gas,
                         geometry="nonlinear",
                         potentialenergy=energy_CH4_gas,
@@ -81,21 +82,18 @@ thermo_CH4_gas = IdealGasThermo(vib_energies=vib_energy_CH4_gas,
                         symmetrynumber=12,
                         spin=0)
 thermo_CH4_ads = HarmonicThermo(vib_energies=vib_energy_CH4_ads, potentialenergy=energy_CH4_ads)
-temp = 300
-pressure = 1.0e+5
 
 g_CH4_gas = thermo_CH4_gas.get_gibbs_energy(temperature=temp, pressure=pressure, verbose=False)
 g_CH4_ads = thermo_CH4_ads.get_helmholtz_energy(temperature=temp, verbose=False)
-g_slab = energy_slab
-Pa_to_bar = 1.0e-5
-adsorption_free_energy_CH4 = g_CH4_ads - (g_slab + g_CH4_gas)
+g_slab_CH4 = energy_slab
+adsorption_free_energy_CH4 = g_CH4_ads - (g_slab_CH4 + g_CH4_gas)
 
 # Print the adsorption free energies of CO and Ch4
 print(f"Adsorption free energy of CO on Cu(111) at {temp}K and {pressure*Pa_to_bar} bar: {adsorption_free_energy_CO: .3f} eV")
 print(f"Adsorption free energy of CH4 on Cu(111) at {temp}K and {pressure*Pa_to_bar} bar: {adsorption_free_energy_CH4: .3f} eV")
 
 # Calculate the equilibrium constant for adsorption K_CO
-beta = kB * T
+beta = boltzmann * T
 exp_CO = -adsorption_free_energy_CO / beta
 K_CO = np.exp(exp_CO)
 
@@ -116,7 +114,8 @@ print("The selectivy of CO over CH4 is:", S_CO_CH4)
 plt.figure(figsize=(8,6))
 plt.plot(T, S_CO_CH4)
 plt.xlim(0,1000)
-plt.grid(linestyle = "--", linewidth=0.5, alpha=0.7)
+plt.yscale("log")
+plt.grid(which="both", linestyle = "--", linewidth=0.5, alpha=0.7)
 plt.xlabel("Temperature (K)", weight='bold')
 plt.ylabel("$S_{CO/CH4}$ (log scale)", weight='bold')
 plt.title("Selectivity of CO over CH$_4$ on a Cu(111) surface as a function of T", weight='bold')
