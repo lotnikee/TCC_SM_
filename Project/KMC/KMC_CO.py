@@ -29,7 +29,7 @@ plt.plot(filtered_KMC_CO_data['p'], filtered_KMC_CO_data['Coverage per site'], l
 
 plt.xlabel('Pressure (bar)', fontsize=14, weight='bold')
 plt.ylabel('Surface coverage', fontsize=14, weight='bold')
-plt.title('Surface coverage vs pressure', fontsize=16, weight='bold')
+plt.title('Comparison of KMC data for CO coverage on Cu(111) with Langmuir adsorption isotherm', fontsize=16, weight='bold')
 
 # Custom x-axis scale and ticks
 plt.xscale("log")
