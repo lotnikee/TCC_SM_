@@ -1,0 +1,191 @@
++---------------------------------------------------+
+|  ZACROS 3.03                                      |
+|  GRAPH-THEORETICAL KMC SIMULATION CODE            |
+|                                                   |
+|  Multiscale Computational Catalysis and           |
+|  Materials Science Research Group                 |
+|                                                   |
+|  Michail Stamatakis, Ph.D.                        |
+|  Chemical Engineering Department                  |
+|  University College London                        |
++---------------------------------------------------+
+
+Threading/multiprocessing information:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    Serial run (no parallelism).
+
+Simulation setup:
+~~~~~~~~~~~~~~~~~
+
+    Random sequence with seed: 465317
+
+    Temperature: 300.00000000000000
+
+    Pressure: 10.000000000000000
+
+    Number of gas species: 2
+
+    Gas species names: CO CH4 
+
+    Gas species energies: 0.0000000000000000 0.0000000000000000 
+
+    Gas species molecular weights: 28.010000000000002 16.039999999999999 
+
+    Gas species molar fractions: 0.50000000000000000 0.50000000000000000 
+
+    Number of surface species: 2
+
+    Surface species names: CO* CH4* 
+
+    Surface species dentation:  1  1
+
+    Snapshots will be reported in file history_output.txt at every 1000 events
+
+    Process statistics will be reported in file procstat_output.txt at every 1000 events
+
+    Species numbers will be reported in file specnum_output.txt at every 1000 events
+
+    Maximum number of steps: 500000
+
+    Max simulated time: 1.7976931348623157E+308 (maximum allowed value)
+
+    Allowed walltime in seconds: 3600
+
+    The default Mersenne Twister 19937 random number generator will be used for this simulation.
+
+    Initializing the random number generator took 9.0000000000000002E-006 seconds
+
+    The default first reaction method will be used for propagating the KMC state, with a binary heap for the event-queue
+
+Finished reading simulation input.
+
+Lattice setup:
+~~~~~~~~~~~~~~
+
+    Parsing one of the default lattice structures.
+
+    Unit cell area: 11.289176342029695
+
+    Unit cell tiling: 5 x 10
+
+    Lattice surface area: 564.45881710148467
+
+    Number of lattice sites per cell: 2
+
+    Total number of lattice sites: 100
+
+    Number of site types: 1
+
+    Site type names and total number of sites of that type:
+      StTp1 (100)
+
+    Maximum coordination number: 6
+
+Finished reading lattice input.
+
+Energetics setup:
+~~~~~~~~~~~~~~~~~
+
+    Number of clusters: 2
+
+    Maximum number of sites involved in a cluster: 1
+
+    Clusters:
+
+        1. CO_point:   Mult = 1      ECI = -0.43400000000000000      Entities:  CO*
+        2. CH4_point:  Mult = 1      ECI = -0.23899999999999999      Entities:  CH4*
+
+    This cluster expansion involves only one-site (single-body) patterns.
+
+Finished reading energetics input.
+
+Mechanism setup:
+~~~~~~~~~~~~~~~~
+
+    Number of elementary steps: 4
+
+    Maximum number of sites involved in a step: 1
+
+    Reaction network:
+
+        1. CO_adsorption_fwd:     A(Tini) =  8.1050E+08    Ea       =  0.00    k(Tini) =  8.1050E+08    Reaction: CO  +  *(.)  ->  CO*(.)
+        2. CO_adsorption_rev:     A(Tini) =  1.9199E+17  [ Ea-ideal =  0.43    k(Tini) =  9.8269E+09 ]  Reaction: CO*(.)  ->  CO  +  *(.)
+        3. CH4_adsorption_fwd:    A(Tini) =  1.0710E+09    Ea       =  0.00    k(Tini) =  1.0710E+09    Reaction: CH4  +  *(.)  ->  CH4*(.)
+        4. CH4_adsorption_rev:    A(Tini) =  2.3869E+13  [ Ea-ideal =  0.24    k(Tini) =  2.3058E+09 ]  Reaction: CH4*(.)  ->  CH4  +  *(.)
+
+Finished reading mechanism input.
+
+Preparing simulation:
+~~~~~~~~~~~~~~~~~~~~~
+
+    Constructing requested lattice structure.
+
+        Lattice structure written to lattice_output.txt
+
+    Pre-allocating KMC-simulation-handling datastructures... done!
+
+    Pre-allocating lattice-handling datastructures... done!
+
+    Pre-allocating event-rate-handling datastructures... done!
+
+    Initializing lattice state.
+
+        All lattice sites are vacant.
+
+    Initializing energetics.
+
+        Total adlayer energy: 0.0000000000000000
+
+    Initializing lattice events.
+
+        200 lattice events found and stored in binary heap.
+
+Commencing simulation:
+~~~~~~~~~~~~~~~~~~~~~~
+
+Simulation stopped:
+~~~~~~~~~~~~~~~~~~~
+ Current KMC time: 2.05936612E-06
+ Events occurred:  500000
+ Event frequency:  2.42793153E+11
+
+Performance facts:
+~~~~~~~~~~~~~~~~~~
+
+Elapsed CPU time:         0.794075012 seconds
+Elapsed clock time:       0.822808981 seconds
+Setup clock time:         1.19120004E-02 seconds
+Simulation clock time:    0.810896993 seconds
+
+Clock time per KMC event: 1.64561800E-06 seconds
+Clock time per KMC time:  399544.781 seconds/KMCTimeUnits
+
+Events per clock hour:    2187628032
+KMC Dt per clock hour:    9.01025441E-03 KMCTimeUnits
+
+Execution queue statistics:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Number of insertions:               750186
+Number of removals:                 750014
+Number of updates:                       0
+
+Memory usage statistics:
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Used capacity of process queue:                     200
+       ...out of max-allocated:                    5000  (   4.00% utilization )
+
+Used capacity of process-participation list:          2
+       ...out of max-allocated:                     200  (   1.00% utilization )
+
+Used capacity of cluster list:                       57
+       ...out of max-allocated:                    5000  (   1.14% utilization )
+
+Used capacity of cluster-participation list:          1
+       ...out of max-allocated:                      60  (   1.67% utilization )
+
+Restart information successfully written in file restart.inf.
+
+> Normal termination <

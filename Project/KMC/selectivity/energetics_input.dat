@@ -1,0 +1,21 @@
+energetics
+############################################################################
+
+cluster CO_point
+
+  sites 1  lattice_state
+    1 CO* 1
+  cluster_eng -0.434
+
+end_cluster
+############################################################################
+
+cluster CH4_point
+
+  sites 1  lattice_state
+    1 CH4* 1
+  cluster_eng -0.239
+
+end_cluster############################################################################
+
+end_energetics

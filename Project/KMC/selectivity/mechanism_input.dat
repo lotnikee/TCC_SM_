@@ -1,0 +1,39 @@
+mechanism
+
+############################################################################
+
+reversible_step CO_adsorption
+
+  gas_reacs_prods CO -1
+  sites 1
+  initial
+    1 * 1
+  final
+    1 CO* 1
+  pre_expon 1.621e+08
+  pe_ratio 8.443e-10
+  activ_eng 0.000
+  prox_factor 0.0
+
+end_reversible_step
+
+############################################################################
+
+reversible_step CH4_adsorption
+
+  gas_reacs_prods CH4 -1
+  sites 1
+  initial
+    1 * 1
+  final
+    1 CH4* 1
+  pre_expon 2.142e+08
+  pe_ratio 8.974e-06
+  activ_eng 0.000
+  prox_factor 0.0
+
+end_reversible_step
+
+############################################################################
+
+end_mechanism
