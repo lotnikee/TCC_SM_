@@ -114,11 +114,11 @@ S_CO_CH4 = K_CO / K_CH4
 print("The selectivy of CO over CH4 is:", S_CO_CH4)
 
 plt.figure(figsize=(8,6))
-plt.plot(T, S_CO_CH4)
+plt.plot(T, np.log10(S_CO_CH4))
 plt.xlim(0,1000)
 plt.grid(linestyle = "--", linewidth=0.5, alpha=0.7)
 plt.xlabel("Temperature (K)", weight='bold')
-plt.ylabel("$S_{CO/CH4}$ (log scale)", weight='bold')
+plt.ylabel("$S_{CO/CH4}$", weight='bold')
 plt.title("Selectivity of CO over CH$_4$ on a Cu(111) surface as a function of T", weight='bold')
 plt.grid()
 plt.show()
