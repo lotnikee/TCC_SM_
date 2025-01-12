@@ -113,6 +113,7 @@ S_CO_CH4 = K_CO / K_CH4
 # Print the selectivity of CO over CH4
 print("The selectivy of CO over CH4 is:", S_CO_CH4)
 
+# Plot the results
 plt.figure(figsize=(8,6))
 plt.plot(T, np.log10(S_CO_CH4))
 plt.xlim(0,1000)
