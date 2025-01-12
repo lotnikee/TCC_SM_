@@ -94,9 +94,8 @@ adsorption_free_energy_CH4 = g_CH4_ads - (g_slab + g_CH4_gas)
 print(f"Adsorption free energy of CO on Cu(111) at {temp}K and {pressure*Pa_to_bar} bar: {adsorption_free_energy_CO: .3f} eV")
 print(f"Adsorption free energy of CH4 on Cu(111) at {temp}K and {pressure*Pa_to_bar} bar: {adsorption_free_energy_CH4: .3f} eV")
 
-
 # Calculate the equilibrium constant for adsorption K_CO
-beta = kB * T 
+beta = kB * T
 exp_CO = -adsorption_free_energy_CO / beta
 K_CO = np.exp(exp_CO)
 
@@ -104,15 +103,22 @@ K_CO = np.exp(exp_CO)
 exp_CH4 = -adsorption_free_energy_CH4 / beta
 K_CH4 = np.exp(exp_CH4)
 
-# Determine the selectivity of CO over CH4
-S_CO_CH4 = K_CO / K_CH4  
+# Print the equilibrium constants
+print("The equilibrium constant of adsorption, $K_CO$ is:", K_CO)
+print("The equilibrium constant of adsorption, $K_CH4$ is:", K_CH4)
 
-# Determine the selectivity at x = 300 K
-x_target = 300 
+# Determine the selectivity of CO over CH4 
+S_CO_CH4 = K_CO / K_CH4
+
+# Print the selectivity of CO over CH4
+print("The selectivy of CO over CH4 is:", S_CO_CH4)
+
+# Interpolate the y-value for x = 300 K
+x_target = 300  # Target temperature
 y_target = np.interp(x_target, T, np.log10(S_CO_CH4))
 
-# Print the selectivity of CO over CH4 at 300 K
-print(f"Selectivity (linear scale) at {x_target} K: {10**y_target:.3f}")
+print(f"Selectivity (log scale) at {x_target} K: {y_target:.3f}")
+print(f"Selectivity (linear scale) at {x_target} K: {10**y_target:.3e}")
 
 # Plot the results
 plt.figure(figsize=(8,6))
