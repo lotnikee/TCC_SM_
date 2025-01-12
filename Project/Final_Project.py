@@ -113,6 +113,13 @@ S_CO_CH4 = K_CO / K_CH4
 # Print the selectivity of CO over CH4
 print("The selectivy of CO over CH4 is:", S_CO_CH4)
 
+# Interpolate the y-value for x = 300 K
+x_target = 300  # Target temperature
+y_target = np.interp(x_target, T, np.log10(S_CO_CH4))
+
+print(f"Selectivity (log scale) at {x_target} K: {y_target:.3f}")
+print(f"Selectivity (linear scale) at {x_target} K: {10**y_target:.3e}")
+
 # Plot the results
 plt.figure(figsize=(8,6))
 plt.plot(T, np.log10(S_CO_CH4))
