@@ -112,7 +112,7 @@ x_target = 300
 y_target = np.interp(x_target, T, np.log10(S_CO_CH4))
 
 # Print the selectivity of CO over CH4 at 300 K
-print(f"Selectivity (linear scale) at {x_target} K: {10**y_target:.3f}")
+print(f"Selectivity (linear scale) at {x_target} K: {10**y_target:.4f}")
 
 # Plot the results
 plt.figure(figsize=(8,6))
