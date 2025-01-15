@@ -99,7 +99,7 @@ for step in range(1, N_steps + 1):
     if step % N_snapshot == 0:
         snapshots.append(lattice.copy())
 
-    # if entering the second half of the Monte Carlo steps, store the collected data from the production phase
+    # when entering the second half of the Monte Carlo steps, store the collected data from the production phase
     if step > equilibration_steps:
         CO = np.sum(lattice == 1)       # sum all the CO molecules on the lattice 
         CH4 = np.sum(lattice == 2)      # sum all the CH4 molecules on the lattice
