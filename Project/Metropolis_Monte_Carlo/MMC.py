@@ -33,14 +33,6 @@ P_exchange_CO_CH4 = min(1, np.exp(-delta_G_CO_to_CH4 / kBT))
 delta_G_CH4_to_CO = G_ads_CO - G_ads_CH4
 P_exchange_CH4_CO = min(1, np.exp(-delta_G_CH4_to_CO / kBT))
 
-# Print all the probabilities for debugging purposes 
-print(f"Adsorption of CO (P_adsorb_CO): {P_ads_CO:.4f}")
-print(f"Adsorption of CH4 (P_adsorb_CH4): {P_ads_CH4:.4f}", "\n")
-print(f"Desorption of CO (P_desorb_CO): {P_des_CO:.4f}")
-print(f"Desorption of CH4 (P_desorb_CH4): {P_des_CH4:.4f}", "\n")
-print(f"Exchange from CO to CH4 (P_exchange_CO_to_CH4): {P_exchange_CO_CH4:.4f}")
-print(f"Exchange from CH4 to CO (P_exchange_CH4_to_CO): {P_exchange_CH4_CO:.4f}", "\n")
-
 # Build the lattice 
 L = 10
 lattice = np.zeros((L, L), dtype=int)
