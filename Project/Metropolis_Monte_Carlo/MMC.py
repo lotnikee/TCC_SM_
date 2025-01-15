@@ -56,7 +56,7 @@ for step in range(1, N_steps + 1):
 
     # determine the possible actions based on the current state 
     # empty site; decide between CO or CH4 adsorption
-    if current_state == 0:                                      # if the lattice site is empty, randomly generate between CO or CH4 adsorption
+    if current_state == 0:                                    
         action = random.choices(['adsorb_CO', 'adsorb_CH4'], weights=[0.5, 0.5], k=1)[0]
 
         if action == 'adsorb_CO':

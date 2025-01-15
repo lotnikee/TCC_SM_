@@ -42,5 +42,3 @@ plt.grid(True, which="both", linestyle="--", linewidth=0.5)
 plt.legend(loc='upper left', fontsize=8)
 plt.tight_layout()
 plt.show()
-
-
