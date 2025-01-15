@@ -2,6 +2,10 @@ import numpy as np
 import matplotlib.pyplot as plt 
 import random 
 
+# Set random seeds for reproducibility reasons
+random.seed(13)
+np.random.seed(13)
+
 # Define constants 
 T = 300                     # temperature in K
 G_ads_CO = 0.106            # CO adsorption free energy
