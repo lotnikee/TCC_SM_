@@ -26,12 +26,11 @@ theta = (K * P) / (1 + (K * P))
 plt.figure(figsize=(10, 8))
 plt.plot(P, theta, label='Langmuir isotherm', color='red')
 plt.plot(filtered_KMC_CO_data['p'], filtered_KMC_CO_data['Coverage per site'], label='KMC Data', color='red', marker='o', linestyle="")
-
 plt.xlabel('Pressure (bar)', fontsize=14, weight='bold')
 plt.ylabel('Surface coverage', fontsize=14, weight='bold')
 plt.title('Comparison of KMC data for CO coverage on Cu(111) with Langmuir adsorption isotherm', fontsize=16, weight='bold')
 
-# Custom x-axis scale and ticks
+# Custom x-axis scale
 plt.xscale("log")
 
 # Manually specify major ticks
@@ -39,7 +38,7 @@ major_ticks = [1e-2, 1e-1, 1e0, 1e1, 1e2, 1e3, 1e4, 1e5, 1e6]
 plt.xticks(major_ticks, [f"$10^{{{int(np.log10(tick))}}}$" for tick in major_ticks])  # Custom tick labels
 
 # Grid and layout
-plt.grid(True, which="both", linestyle="--", linewidth=0.5)  # Grid for both major and minor ticks
+plt.grid(True, which="both", linestyle="--", linewidth=0.5) 
 plt.legend(loc='upper left', fontsize=8)
 plt.tight_layout()
 plt.show()

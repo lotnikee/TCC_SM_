@@ -114,13 +114,25 @@ y_target = np.interp(x_target, T, np.log10(S_CO_CH4))
 # Print the selectivity of CO over CH4 at 300 K
 print(f"Selectivity (linear scale) at {x_target} K: {10**y_target:.4f}")
 
-# Plot the results
-plt.figure(figsize=(8,6))
-plt.plot(T, np.log10(S_CO_CH4))
+# Plot the results side by side 
+fig, axs = plt.subplots(1, 2, figsize=(12, 5))  # figsize=(width, height) in inches
+plt.title("Selectivity of CO over CH$_4$ on a Cu(111) surface as a function of T", weight='bold')
 plt.xlim(0,1000)
 plt.grid(linestyle = "--", linewidth=0.5, alpha=0.7)
-plt.xlabel("Temperature (K)", weight='bold')
-plt.ylabel("$S_{CO/CH4}$ (log scale)", weight='bold')
-plt.title("Selectivity of CO over CH$_4$ on a Cu(111) surface as a function of T", weight='bold')
-plt.grid()
+
+# First subplot
+axs[0].plot(T, np.log10(S_CO_CH4))
+axs[0].set_title("Selectivity CO over CH$_4$ (log scale)", weight='bold')
+axs[0].set_xlabel("Temperature (K)", weight='bold')
+axs[0].set_ylabel("$S_{CO/CH4}$ (log scale)", weight='bold')
+axs[0].grid(True)
+
+# Second subplot
+axs[1].plot(T, S_CO_CH4)
+axs[1].set_title("Selectivity CO over CH$_4$ (linear)", weight='bold')
+axs[1].set_xlabel("Temperature (K)", weight='bold')
+axs[1].set_ylabel("$S_{CO/CH4}$ (linear scale)", weight='bold')
+axs[1].grid(True)
+
+plt.tight_layout()
 plt.show()
