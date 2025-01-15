@@ -81,13 +81,10 @@ thermo_CH4_gas = IdealGasThermo(vib_energies=vib_energy_CH4_gas,
                         symmetrynumber=12,
                         spin=0)
 thermo_CH4_ads = HarmonicThermo(vib_energies=vib_energy_CH4_ads, potentialenergy=energy_CH4_ads)
-temp = 300
-pressure = 1.0e+5
 
 g_CH4_gas = thermo_CH4_gas.get_gibbs_energy(temperature=temp, pressure=pressure, verbose=False)
 g_CH4_ads = thermo_CH4_ads.get_helmholtz_energy(temperature=temp, verbose=False)
 g_slab = energy_slab
-Pa_to_bar = 1.0e-5
 adsorption_free_energy_CH4 = g_CH4_ads - (g_slab + g_CH4_gas)
 
 # Print the adsorption free energies of CO and Ch4
