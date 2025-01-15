@@ -7,7 +7,7 @@ R = 8.314                                # J/mol
 conversion_factor = 96485                # Add a conversion factor to easily convert to eV/K units 
 h = 6.626e-34                            # J/s
 c = 2.998e10                             # cm/s
-v = 1890                                 # cm^-1
+v = 1580                                 # cm^-1
 k = 1.381e-23                            # J/K
 
 # Calculate the vibrational temperature vib_temp
@@ -40,13 +40,13 @@ Cv_vib_total = R * vib_temp_T_square * total_exp_vib_temp_T
 Cv_total = 10000 * (Cv_trans + Cv_rot + Cv_vib_total) / conversion_factor
 
 # Load the 'NO' datasheet and extract relevant columns 
-data = pd.ExcelFile('~/Desktop/TCC_SM_/CW_2/SM_CW2_NO.xlsx')
-NO_data_sheet = data.parse('Sheet1') 
-temperature_column = NO_data_sheet.columns[0]
-cv_nist_column = NO_data_sheet.columns[2]
+data = pd.ExcelFile('~/Desktop/TCC_SM_/CW_2/O2/SM_CW2_O2.xlsx')
+O2_data_sheet = data.parse('Sheet1') 
+temperature_column = O2_data_sheet.columns[0]
+cv_nist_column = O2_data_sheet.columns[2]
 
-filtered_NO_data = NO_data_sheet[[temperature_column, cv_nist_column]].iloc[2:60]
-filtered_NO_data.columns = ['T', 'C_v (NIST)']
+filtered_O2_data = O2_data_sheet[[temperature_column, cv_nist_column]].iloc[2:60]
+filtered_O2_data.columns = ['T', 'C_v (NIST)']
 
 # Plotting 
 plt.figure(figsize=(10, 8))
@@ -56,14 +56,14 @@ plt.axhline(theory_trans_rot_vib, label='Theory (Trans + Rot + Vib: 7/2 * $k_B$)
 # Plot theoretical Cv_total vs Temperature
 plt.plot(T, Cv_total, label='Theory (Trans + Rot + Vib)', color='blue')
 # Plot NO data from the NIST Webbook 
-plt.plot(filtered_NO_data['T'], filtered_NO_data['C_v (NIST)'], label='Data (NIST Webbook; Chase, 1998)', color='red')
+plt.plot(filtered_O2_data['T'], filtered_O2_data['C_v (NIST)'], label='Data (NIST Webbook; Chase, 1998)', color='red')
 # Plot design 
 plt.xlabel('Temperature (K)', fontsize=14, weight='bold')
 plt.ylabel('$C_v$ (eV/K) * E-04', fontsize=14, weight='bold')
-plt.title('Constant Volume Heat Capacity $C_v$ of NO', fontsize=16, weight='bold')
+plt.title('Constant Volume Heat Capacity $C_v$ of $O_2$', fontsize=16, weight='bold')
 plt.legend(loc='upper left', fontsize=8)
 plt.grid(True)
 plt.xlim(0, 6000)
-plt.ylim(2, 3.2)
+plt.ylim(2, 3.8)
 plt.tight_layout()
 plt.show()
