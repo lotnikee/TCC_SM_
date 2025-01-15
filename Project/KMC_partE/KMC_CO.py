@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np 
 
-data = pd.ExcelFile('~/Desktop/TCC_SM_/Project/KMC/KMC_CO.xlsx')
+data = pd.ExcelFile('~/Desktop/TCC_SM_/Project/KMC_partE/KMC_CO.xlsx')
 KMC_CO_data_sheet = data.parse('Sheet1') 
 pressure_column = KMC_CO_data_sheet.columns[0]
 coverage_column = KMC_CO_data_sheet.columns[3]
